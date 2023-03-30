@@ -6,9 +6,10 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "build": "tsup src/index.ts --format esm, cjs --dts",
+    "dev": "tsup src/index.ts --format esm, cjs --watch",
     "lint": "eslint src/**/*.ts* --fix"
+
   },
   "keywords": [],
   "author": "",
