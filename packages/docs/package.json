@@ -5,8 +5,8 @@
   "main": "vite.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,8 @@
   "dependencies": {
     "@ignite-ui/eslint-config": "*",
     "@ignite-ui/react": "*",
-    "@ignite-ui/tokens": "*"
+    "@ignite-ui/ts-config": "*",
+    "@ignite-ui/tokens": "*",
+    "polished": "^4.2.2"
   }
 }
