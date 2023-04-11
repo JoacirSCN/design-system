@@ -10,11 +10,12 @@ const config  = {
   core: {
     builder: '@storybook/builder-vite'
   },
-  viteFinal: async (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      config.base = '/design-system/'
+  async viteFinal(config, {configType}) {
+    if(configType === 'PRODUCTION') {
+      return config.base = '/'
     }
     return config
-  },
+  }
+  ,
 };
 export default config;
