@@ -7,12 +7,9 @@ const config = {
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
-  },
-  docs: {
-    autodocs: "tag",
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite"
   },
   async viteFinal(config, { configType }) {
     if (configType === 'PRODUCTION') {
