@@ -6,23 +6,16 @@ const config: StorybookConfig  = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
+  framework: "@storybook/react-vite",
+  core: {
+    builder: '@storybook/builder-vite'
   },
-  docs: {
-    autodocs: "tag",
-  },
-  viteFinal: (config, { configType }) => {
+  viteFinal: async (config, { configType }) => {
     if (configType === 'PRODUCTION') {
       config.base = '/design-system/'
     }
-   /*  if (configType === 'DEVELOPMENT') {
-      config.base = '/design-system/'
-    } */
     return config
   },
 };
