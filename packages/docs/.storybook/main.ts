@@ -1,4 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
+
 
 const config: StorybookConfig = {
   stories: [
@@ -13,13 +15,27 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {
+      builder: {
+        viteConfigPath: '../vite.config.js'
+      }
+    },
   },
   docs: {
     //👇 See the table below for the list of supported options
     autodocs: 'tag',
     defaultName: 'Documentation',
-    
   },
+  async viteFinal(config, { configType }) {
+    if (configType === 'PRODUCTION') {
+      config.base = '/design-system/'
+    }
+    return mergeConfig(config, {
+      resolve: {
+        alias: { foo: 'bar' },
+      },
+    });
+  },
+
 };
 export default config;
