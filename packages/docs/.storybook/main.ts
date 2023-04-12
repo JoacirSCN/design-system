@@ -29,11 +29,7 @@ const config: StorybookConfig = {
     if (configType === 'PRODUCTION') {
       config.base = '/design-system'
     }
-    return mergeConfig(config, {
-      resolve: {
-        alias: { foo: 'bar' },
-      },
-    });
+    return await config
   },
 
 };
