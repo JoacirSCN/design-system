@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import { mergeConfig } from 'vite';
 
 
 const config: StorybookConfig = {
@@ -15,7 +14,11 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {
+      builder: {
+        viteConfigPath: '@storybook/builder-vite'
+      }
+    },
   },
   docs: {
     //👇 See the table below for the list of supported options
