@@ -1,7 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
-import react from '@vitejs/plugin-react'
-
 
 
 const config: StorybookConfig = {
@@ -17,16 +15,15 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: "@storybook/react-vite",
-    options: {
-      builder: {
-        viteConfigPath: './vite.config.ts'
-      }
-    },
+    options: {},
   },
   docs: {
     //👇 See the table below for the list of supported options
     autodocs: 'tag',
     defaultName: 'Documentation',
+  },
+  core: {
+    builder: '@storybook/builder-vite'
   },
   async viteFinal(config, { configType }) {
     if (configType === 'PRODUCTION') {
