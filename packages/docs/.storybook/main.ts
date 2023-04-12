@@ -19,7 +19,6 @@ const config: StorybookConfig = {
     },
   },
   docs: {
-    //👇 See the table below for the list of supported options
     autodocs: 'tag',
     defaultName: 'Documentation',
   },
@@ -28,10 +27,9 @@ const config: StorybookConfig = {
   },
   async viteFinal(config, { configType }) {
     if (configType === 'PRODUCTION') {
-      config.base = '/design-system/'
+      config.base = '/design-system'
     }
     return mergeConfig(config, {
-      // Customize the Vite config for Storybook
       resolve: {
         alias: { foo: 'bar' },
       },
