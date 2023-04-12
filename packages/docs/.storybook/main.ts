@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 
 const config: StorybookConfig = {
@@ -32,7 +33,12 @@ const config: StorybookConfig = {
     if (configType === 'PRODUCTION') {
       config.base = '/design-system/'
     }
-    return config
+    return mergeConfig(config, {
+      // Customize the Vite config for Storybook
+      resolve: {
+        alias: { foo: 'bar' },
+      },
+    });
   },
 
 };
